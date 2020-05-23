@@ -1,16 +1,12 @@
 // Progressive Enhancement (SW supported)
 // if ('serviceWorker' in navigator) {
 if (navigator.serviceWorker) {
-	navigator.serviceWorker.register("./sw.js").then(function (registration) {
-		console.log("SW registrado");
-	});
+	navigator.serviceWorker
+		.register("\\PWA/lifecycle-1/sw.js", {
+			scope: "/posts",
+		})
+		.then(function (registration) {
+			console.log("SW registrado");
+		})
+		.catch(console.log);
 }
-
-// get camera feed
-fetch("camera_feed.html")
-	.then((res) => {
-		return res.text();
-	})
-	.then((html) => {
-		document.getElementById("camera").innerHTML = html;
-	});
