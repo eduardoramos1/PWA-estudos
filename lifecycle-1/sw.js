@@ -1,5 +1,12 @@
 // Service Worker
-// Escopo é a porção do diretorio que o sw gerencia
+self.addEventListener("intall", (ev) => {
+	ev.waitUntil(
+		new Promise((resolve) => {
+			setTimeout(resolve, 5000);
+		})
+	);
+});
+
 self.addEventListener("activate", () => {
-	console.log("Service Worker ativo");
+	console.log("Service Worker ativo 2");
 });
